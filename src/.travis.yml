@@ -1,0 +1,8 @@
+sudo: required
+language: generic
+service:
+  - docker
+before_install:
+  - docker build -t yukairex/docker-react -f Dockerfile.dev .
+script:
+  - docker run -e CI=true yukairex/docker-react npm run test
